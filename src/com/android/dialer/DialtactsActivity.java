@@ -178,7 +178,9 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
     AnimationListenerAdapter mSlideInListener = new AnimationListenerAdapter() {
         @Override
         public void onAnimationEnd(Animation animation) {
-            maybeEnterSearchUi();
+            if (!isInSearchUi()) {
+                enterSearchUi(true /* isSmartDial */, mSearchQuery, false);
+            }
         }
     };
 
